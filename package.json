@@ -1,0 +1,24 @@
+{
+  "name": "mean_contactlist",
+  "version": "1.0.0",
+  "description": "A MEAN stack RESTful API contact list.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Red-French/MEAN_ContactList.git"
+  },
+  "author": "Red French",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Red-French/MEAN_ContactList/issues"
+  },
+  "homepage": "https://github.com/Red-French/MEAN_ContactList#readme"
+}
