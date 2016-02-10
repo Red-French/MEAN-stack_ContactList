@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express');
 const app = express();
 const mongojs = require('mongojs');  // require mongojs module
@@ -23,6 +25,14 @@ app.get('/contactList', function (req, res) {  // server responds to $http.get r
     db.contactList.insert(req.body, (err, doc) => {  // '.insert' adds the data to the database
                                                      // 'doc' represents the item (req.body) that was received and parsed
       res.json(doc); // sends data to the controller in json format
+    });
+   });
+
+   app.delete('/contactlist/:id', function (req, res) {  // the colon in the address is to indicate that what follows is a variable
+    let id = req.params.id;  // gets the value of the id from the url above
+    console.log(id);
+    db.contactList.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {  // id refers to the id passed into the function
+      res.json(doc);  // send the item being removed to the controller
     });
    });
    //  person1 = {

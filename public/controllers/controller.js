@@ -24,4 +24,11 @@ $scope.addContact = function() {  // addContact refers to ng-click in index.html
   });
 };
 
+$scope.remove = function (id) {
+  console.log('id =', id);
+  $http.delete('/contactlist/' + id).success(function (response) {  // on success, send response
+    refresh();  // refresh page
+  });
+};
+
 }]);
