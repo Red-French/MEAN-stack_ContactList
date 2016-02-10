@@ -38,4 +38,12 @@ $scope.edit = (id) => {  // edit button
   });
 };
 
+$scope.update = () => {
+  console.log($scope.contact._id);
+  $http.put('/contactList/' + $scope.contact._id, $scope.contact).success( (response => {
+    refresh();
+  }))  // '$scope.contact' is all of the data in the input fields, and
+                                                                   // they will be sent to the server now
+}
+
 }]);

@@ -41,8 +41,18 @@ app.get('/contactList', function (req, res) {  // server responds to $http.get r
     console.log(id);
     db.contactList.findOne({_id: mongojs.ObjectId(id)}, (err, doc) => {
       res.json(doc);
-    })
-   })
+    });
+   });
+
+   app.put('/contactList/:id', (req, res) => {
+    let id = req.params.id;
+    console.log(req.body.name); // print the name to the console
+    db.contactList.findAndModify({query: {_id: mongojs.ObjectId(id)}, // the contact being modified
+      update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
+      new: true}, (err, doc) => {  // new update = true
+        res.json(doc)  // respond with updated info
+      });
+   });
    //  person1 = {
    //      name: 'Tim',
    //      email: 'time@email.com',
