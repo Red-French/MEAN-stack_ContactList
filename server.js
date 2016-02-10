@@ -28,13 +28,21 @@ app.get('/contactList', function (req, res) {  // server responds to $http.get r
     });
    });
 
-   app.delete('/contactlist/:id', function (req, res) {  // the colon in the address is to indicate that what follows is a variable
+   app.delete('/contactlist/:id', (req, res) => {  // the colon in the address is to indicate that what follows is a variable
     let id = req.params.id;  // gets the value of the id from the url above
     console.log(id);
-    db.contactList.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {  // id refers to the id passed into the function
+    db.contactList.remove({_id: mongojs.ObjectId(id)}, (err, doc) => {  // id refers to the id passed into the function
       res.json(doc);  // send the item being removed to the controller
     });
    });
+
+   app.get('/contactList/:id', (req, res) => {
+    let id = req.params.id;
+    console.log(id);
+    db.contactList.findOne({_id: mongojs.ObjectId(id)}, (err, doc) => {
+      res.json(doc);
+    })
+   })
    //  person1 = {
    //      name: 'Tim',
    //      email: 'time@email.com',

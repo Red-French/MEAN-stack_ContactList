@@ -24,10 +24,17 @@ $scope.addContact = function() {  // addContact refers to ng-click in index.html
   });
 };
 
-$scope.remove = function (id) {
+$scope.remove = (id) => {  //remove button
   console.log('id =', id);
-  $http.delete('/contactlist/' + id).success(function (response) {  // on success, send response
+  $http.delete('/contactlist/' + id).success( (response) => {  // on success, send response
     refresh();  // refresh page
+  });
+};
+
+$scope.edit = (id) => {  // edit button
+  console.log('from edit =', id);
+  $http.get('/contactlist/' + id).success( (response) => {  // on success, send response
+    $scope.contact = response;  // put response into the input boxes
   });
 };
 
