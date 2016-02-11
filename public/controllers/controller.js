@@ -1,12 +1,12 @@
-// 'use strict'
+'use strict'
 var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http',
     function($scope, $http) {
-        console.log('Hello world from controller');
+        // console.log('Hello world from controller');
 
 const refresh = () => {  // load/refresh the page
   $http.get('/contactList').success(function(response) {  // $http.get sends a request to the server
-     console.log('I got the data I requested');
+     // console.log('I got the data I requested');
      $scope.contactList = response; // puts data into browser
      $scope.contact = '';  // clear input boxes
 
@@ -19,7 +19,7 @@ $scope.addContact = function() {  // addContact refers to ng-click in index.html
   console.log($scope.contact);
   $http.post('/contactlist', $scope.contact).success(function(response) {  // fxn takes the response from the server as the argument
       // route='/contactlist'; '$http.post' sends input data from '$scope.contact' to the server
-    console.log(response);
+    // console.log(response);
     refresh(); // refresh page
   });
 };
@@ -40,10 +40,13 @@ $scope.edit = (id) => {  // edit button
 
 $scope.update = () => {
   console.log($scope.contact._id);
-  $http.put('/contactList/' + $scope.contact._id, $scope.contact).success( (response => {
-    refresh();
-  }))  // '$scope.contact' is all of the data in the input fields, and
-                                                                   // they will be sent to the server now
+  $http.put('/contactList/' + $scope.contact._id, $scope.contact).success( (response => {  // '$scope.contact' is all of the data in the input fields, and
+    refresh();                                                                             // they will be sent to the server now
+  }));
+};
+
+$scope.deselect = () => {
+  $scope.contact = '';  // clear input fields
 }
 
 }]);

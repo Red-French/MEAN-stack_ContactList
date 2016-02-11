@@ -1,5 +1,4 @@
 'use strict'
-
 const express = require('express');
 const app = express();
 const mongojs = require('mongojs');  // require mongojs module
@@ -53,6 +52,8 @@ app.get('/contactList', function (req, res) {  // server responds to $http.get r
         res.json(doc)  // respond with updated info
       });
    });
+
+   // TEST DATA
    //  person1 = {
    //      name: 'Tim',
    //      email: 'time@email.com',
@@ -74,6 +75,7 @@ app.get('/contactList', function (req, res) {  // server responds to $http.get r
    //  var contactList = [person1, person2, person3];
    // res.json(contactList);  // server responds to the GET request by sending back the data
    //                         // in JSON format 
+
 });
 
 app.listen(3000);
