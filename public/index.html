@@ -6,10 +6,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
         <title>Contact List App</title>
     </head>
     <body ng-app='myApp'>
-        <div class='container' ng-controller='AppCtrl'>
+        <div id="background" class='container' ng-controller='AppCtrl'>
             <h1>Contacts</h1>
             <table class='table'>
                 <thead>
@@ -21,7 +22,7 @@
                         <th>&nbsp</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class='data'>
                     <tr>
                         <td><input class='form-control' ng-model='contact.name'></td>
                         <td><input class='form-control' ng-model='contact.email'></td>

@@ -1,0 +1,9 @@
+#background {
+  height: 750px;
+  background-image: url("./img/rolodex2.png");
+  background-size: cover;
+  background-attachment : fixed;
+}
+.data {
+  color: #3d3d5c;
+}
