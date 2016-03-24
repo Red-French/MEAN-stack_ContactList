@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));  // 'static' is telling the serv
 app.use(bodyParser.json());  // now, the server can parse the data from the body that it receives
 
 app.get('/contactList', function (req, res) {  // server responds to $http.get request and sends data
-//    res.send('Hello World from server.js'); // appears in browser when directed to '/contactList'
+  //  res.send('Hello World from server.js'); // appears in browser when directed to '/contactList'
    console.log('I received a GET request');  // appears in devTools console
 
    db.contactList.find(function (err, docs) { // 'docs' means it will respond with the data from the database
@@ -57,24 +57,24 @@ app.get('/contactList', function (req, res) {  // server responds to $http.get r
    //  person1 = {
    //      name: 'Tim',
    //      email: 'time@email.com',
-   //      number: '(111) 111-1111'  
+   //      number: '(111) 111-1111'
    //  };
 
    //  person2 = {
    //      name: 'Emily',
    //      email: 'emily@email.com',
-   //      number: '(222) 222-2222'  
+   //      number: '(222) 222-2222'
    //  };
-    
+
    //  person3 = {
    //      name: 'John',
    //      email: 'john@email.com',
-   //      number: '(333) 333-3333'  
+   //      number: '(333) 333-3333'
    //  };
-    
+
    //  var contactList = [person1, person2, person3];
    // res.json(contactList);  // server responds to the GET request by sending back the data
-   //                         // in JSON format 
+   //                         // in JSON format
 
 });
 
